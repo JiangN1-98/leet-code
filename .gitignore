@@ -1,0 +1,7 @@
+/node_modules/
+/.idea
+/.idea/leetcode/editor.xml
+/.idea/leetcode/statistics.xml
+/.idea/.gitignore
+/.idea/leet-code.iml
+/.idea/modules.xml
