@@ -92,6 +92,5 @@ function minMutation(startGene: string, endGene: string, bank: string[]): number
         }
     }
     return -1
-
 }
 //leetcode submit region end(Prohibit modification and deletion)
