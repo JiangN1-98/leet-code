@@ -48,41 +48,41 @@
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Trie {
-    children: any = {}
+    children: any
 
     constructor() {
         this.children = {}
     }
 
     insert(word: string): void {
-        let node = this.children
-        for (const ch of word) {
-            if (!node[ch]) {
-                node[ch] = {}
+        let children = this.children
+        for (let ch of word) {
+            if (!children[ch]){
+                children[ch] = {}
             }
-            node = node[ch]
+            children = children[ch]
         }
-        node.isEnd = true
+        children.end = true
     }
 
     searchPrefix(prefix: string): boolean {
-        let node = this.children
-        for (const ch of prefix) {
-            if (!node[ch]) {
+        let {children} = this
+        for (const ch of prefix){
+            if (!children[ch]){
                 return false
             }
-            node = node[ch]
+            children = children[ch]
         }
-        return node
+        return children
     }
 
     search(word: string): boolean {
-        const node = this.searchPrefix(word)
-        return node !== undefined && node.isEnd !== undefined
+        const result = this.searchPrefix(word)
+        return result && result?.end != undefined
     }
 
     startsWith(prefix: string): boolean {
-        
+        return !!this.searchPrefix(prefix)
     }
 }
 
