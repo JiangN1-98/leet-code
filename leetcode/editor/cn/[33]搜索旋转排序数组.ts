@@ -50,14 +50,22 @@ function search(nums: number[], target: number): number {
     let l = 0, r = nums.length - 1;
     while (l <= r){
         const m = l + Math.floor((r - l) / 2)
+        // const c = (l + r) >> 1
+        // console.log(c, m)
         if (nums[m] == target){
             return m
-        } else if (nums[l] <= nums[m]){
-            target >= nums[l] && target < nums[m] ? r = m -1 : l = m + 1
-        } else {
-            target > nums[m] && target <= nums[r] ? l = m + 1 : r = m - 1
+        } else if (nums[l] <= nums[m]){  // 顺序区间
+            target >= nums[l] && target < nums[m]  // 在顺序区间内
+                ? r = m -1    // 缩小右边界
+                : l = m + 1   // 换到乱序区间
+        } else {  // 乱序区间
+            target > nums[m]  && target <= nums[r] // 在乱序区间的顺序区间内
+                ? l = m + 1   // 扩大左边界
+                : r = m - 1   // 缩小右边界
         }
     }
     return  -1
 };
 //leetcode submit region end(Prohibit modification and deletion)
+const nums = [4,5,6,7,0,1,2], target = 0
+search(nums, target)
