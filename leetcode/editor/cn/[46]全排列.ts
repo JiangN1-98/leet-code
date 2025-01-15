@@ -57,5 +57,5 @@ function permute(nums: number[]): number[][] {
     }
     backtrack([])
     return back
-};
+}
 //leetcode submit region end(Prohibit modification and deletion)
