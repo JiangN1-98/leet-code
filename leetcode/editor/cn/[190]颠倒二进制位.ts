@@ -49,7 +49,6 @@ function reverseBits(n: any): number {
     for (let i = 0 , j = arr.length - 1; i < arr.length && j >= 0; i++, j--) {
         arr[i] = str[j]
     }
-
     return parseInt(arr.join(""), 2)
 };
 //leetcode submit region end(Prohibit modification and deletion)
